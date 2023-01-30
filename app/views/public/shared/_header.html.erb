@@ -1,0 +1,46 @@
+<header>
+
+  <nav class="navbar navbar-expand-sm navbar-light">
+
+    <%= link_to " LOGO ", root_path ,class: "h1 text-decoration-none text-dark border border-secondatry" %>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar" >
+      <ul class="navbar-nav" >
+
+        <% if customer_signed_in? %>
+          <li class="nav-item" >
+            <%= link_to "Home", reviews_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item" >
+            <%= link_to "About", about_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item" >
+            <%= link_to "My Page", my_page_customers_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item" >
+            <%= link_to "Log Out", destroy_customer_session_path, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item" >
+            <%= link_to "Home", reviews_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item" >
+            <%= link_to "About", about_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item" >
+            <%= link_to "Sign In", new_customer_registration_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item" >
+            <%= link_to "Log In", new_customer_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+
+      </ul>
+    </div>
+  </nav>
+
+</header>

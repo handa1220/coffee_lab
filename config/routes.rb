@@ -9,10 +9,13 @@ Rails.application.routes.draw do
   }
    # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  namespace :public do
+  scope module: :public do
     root to: "homes#top"
+    get "about" => "homes#about", as: "about"
     resources :reviews, only: [:index, :show, :new, :create, :edit, :update, :search, :destroy]
-    resources :customers, only: [:show, :edit, :update]
+    get "customers/my_page" => "customers#show", as: "my_page_customers"
+    get "customers/information/edit" => "customers#edit", as: "edit_information_customers"
+    get "customers/information" => "customers#update", as: "information_customers"
   end
 
   namespace :admin do
@@ -20,6 +23,5 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :reviews, only: [:index, :show, :edit, :update, :destroy]
   end
-
 
 end
