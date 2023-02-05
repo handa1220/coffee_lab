@@ -1,31 +1,27 @@
 <%= render "public/shared/header" %>
 
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="container-fluid" >
+  <div class="row">
+    <div class="col">
+      <h1>Sign In</h1>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <%= form_with model: @customer, url: customer_registration_path, id: "new_customer", class: "new_customer" do |f| %>
+  <div class="form-group row">
+    <%= f.label :name, "ユーザー名", class: "col" %>
+    <%= f.text_field :name, class: "col" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="form-group row">
+    <%= f.label :email, "メールアドレス", class: "col" %>
+    <%= f.text_field :email, class: "col" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="form-group row">
+    <%= form_with model: customer, url:
+      <%= f.label :age, "年代", class: "col" %>
+      <%= f.select :age, OrderDetail.production_statuses_i18n.invert, {}, {class: "form-control"} %>
   </div>
-<% end %>
+</div>
 
-<%= render "public/shared/links" %>
+
+
