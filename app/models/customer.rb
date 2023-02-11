@@ -4,7 +4,7 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum ege: {teens: 0, twenties: 1, thirties: 2, forties: 3, fifties: 4, over_60s: 5 }
+  enum age: {teens: 0, twenties: 1, thirties: 2, forties: 3, fifties: 4, over_60s: 5 }
 
   has_many :comments
   has_many :likes
