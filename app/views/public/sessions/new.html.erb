@@ -7,7 +7,7 @@
     </div>
   </div>
 
-  <%= form_with model: @customer, url: customer_session_path, id: "new_customer", class: "new_customer" do |f| %>
+  <%= form_with model: @customer, url: customer_session_path do |f| %>
     <div class="form-group row">
       <%= f.label :email, "メールアドレス", class: "col" %>
       <%= f.text_field :email, class: "col" %>
